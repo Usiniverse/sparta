@@ -1,0 +1,123 @@
+// API 명세서
+회원가입 API 인터페이스 작성
+Request
+- method : POST
+- Url : /users
+- body : { email: string, password: string, name: string }
+Response
+- HTTP Status Code : 201 // created
+- Payload : { token: string }
+
+
+로그인 API 인터페이스 작성
+Request
+- method : POST
+- Url : /login
+- body : { email: string, password: string }
+Response
+- HTTP Status Code : 201 // created
+- Payload : { token: string }
+
+
+회원 정보 수정 API 작성
+Request
+- method : PUT
+- Url : /users/:userId
+- body : { { email: string, password: string, name: string } }
+Response
+- HTTP Status Code : 200 
+- Payload : { message: string }
+
+
+회원 탈퇴 API 작성
+Request
+- method : DELETE
+- Url : /users/:userId
+Response
+- HTTP Status Code : 200 
+- Payload : { message: string }
+
+
+게시글 작성 API 작성
+Request
+- method : POST
+- Url : /article
+- Body : { authorId: number, content: string }
+Response
+- HTTP Status Code : 201 
+- Payload : { articleId: number }
+
+
+게시글 목록 조회 API 작성
+Request
+- Method: GET
+- URL: /articles
+Response
+- HTTP Status Code: 200
+- Payload:{ articleId: number, subject: string, content: string, authorId: number }[] 
+
+
+게시글 상세 조회 API 작성
+Request
+- Method: GET
+- URL: /articles/:articleId
+Response
+- HTTP Status Code: 200
+- Payload:{ articleId: number, subject: string, content: string, authorId: number }
+
+
+게시글 수정 API 작성
+Request
+- Method: PUT
+- URL: /articles/:articleId
+- Body:{ subject: string, content: string }
+Response
+- HTTP Status Code: 200
+- Payload:{ message: string }
+
+
+게시글 삭제 API 작성
+Request
+- Method: DELETE
+- URL: /articles/:articleId
+Response
+- HTTP Status Code: 200
+- Payload:{ message: string }
+
+
+특정 게시글에 댓글 작성 API 작성
+Request
+- Method: POST
+- URL: /articles/:articleId/comments
+- Body:{ authorId:number, comment: string }
+Response
+- HTTP Status Code: 201
+- Payload:{ commentId: number }
+
+
+특정 게시글에 달린 댓글 목록 조회 API 작성
+Request
+- Method: GET
+- URL: /articles/:articleId/comments
+Response
+- HTTP Status Code: 200
+- Payload:{ content: string, commentId: number }[] 
+
+
+특정 게시글에 달린 댓글 수정 API 작성
+Request
+- Method: PUT
+- URL: /articles/:articleId/comments/:commentId
+- Body:{ comment: string }
+Response
+- HTTP Status Code: 200
+- Payload:{ message: string }
+
+
+특정 게시글에 달린 댓글 삭제 API 작성
+Request
+- Method: DELETE
+- URL: /articles/:articleId/comments/:commentId
+Response
+- HTTP Status Code: 200
+- Payload:{ message: string }
